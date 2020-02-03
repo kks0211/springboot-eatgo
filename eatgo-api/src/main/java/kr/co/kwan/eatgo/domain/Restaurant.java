@@ -5,9 +5,12 @@ import java.util.List;
 
 public class Restaurant {
     private Long id;
-    private final String name;
-    private final String address;
+    private String name;
+    private String address;
     private List<MenuItem> MenuItems = new ArrayList<MenuItem>();
+
+    public Restaurant() {
+    }
 
     public Restaurant(Long id, String name, String address) {
         this.id = id;
@@ -21,6 +24,10 @@ public class Restaurant {
 
     public String getName() {
         return "Bob zip";
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public List<MenuItem> getMenuItems() {

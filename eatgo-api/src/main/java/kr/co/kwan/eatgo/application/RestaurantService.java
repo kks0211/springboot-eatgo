@@ -39,4 +39,7 @@ public class RestaurantService {
         restaurant.setMenuItems(menuItems);
         return restaurant;
     }
+
+    public void addRestaraunt(Restaurant restaurant) {
+    }
 }

@@ -7,10 +7,11 @@ import kr.co.kwan.eatgo.domain.Restaurant;
 import kr.co.kwan.eatgo.domain.RestaurantRepository;
 import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -30,6 +31,18 @@ public class RestaurantController {
         Restaurant restaurant = restaurantService.getRestaurantById(id);
         //기본정보 + 메뉴정보
         return restaurant;
+    }
+
+    @PostMapping("/restaurants")
+    public ResponseEntity<?> create(@RequestBody Restaurant resource ) throws URISyntaxException {
+        String name = resource.getName();
+        String address = resource.getAddress();
+
+        Restaurant restaurant = new Restaurant(1234L, name, address);
+        restaurantService.addRestaraunt(restaurant);
+
+        URI location = new URI("/restaurants/" + restaurant.getId());
+        return ResponseEntity.created(location).body("{}");
     }
 
 }
