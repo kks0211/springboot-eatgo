@@ -10,15 +10,26 @@ public class RestaurantTests {
 
     @Test
     public void creation(){
-        Restaurant restaurant = new Restaurant(1004L,"Bob zip","");
+        //Restaurant restaurant = new Restaurant(1004L,"Bob Zip","");
+        Restaurant restaurant = Restaurant.builder()
+                                .id(1004L)
+                                .name("Bob Zip")
+                                .address("Seoul")
+                                .build();
+
         assertThat(restaurant.getId()).isEqualTo(1004L);
-        assertThat(restaurant.getName()).isEqualTo("Bob zip");
+        assertThat(restaurant.getName()).isEqualTo("Bob Zip");
     }
 
     @Test
     public void information(){
-        Restaurant restaurant = new Restaurant(1004L, "Bob zip","seoul");
-        assertThat(restaurant.getInformation()).isEqualTo("Bob zip in seoul");
+        //Restaurant restaurant = new Restaurant(1004L, "Bob zip","seoul");
+        Restaurant restaurant = Restaurant.builder()
+                                .id(1004L)
+                                .name("Bob Zip")
+                                .address("Seoul")
+                                .build();
+        assertThat(restaurant.getInformation()).isEqualTo("Bob Zip in Seoul");
     }
 
 }
