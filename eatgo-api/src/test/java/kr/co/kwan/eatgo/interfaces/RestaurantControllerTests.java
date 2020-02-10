@@ -61,35 +61,28 @@ public class RestaurantControllerTests {
     @Test
     public void detailWithExisted() throws Exception {
         //Restaurant restaurant1 = new Restaurant(1004L, "Bob Zip", "seoul");
-        Restaurant restaurant1 = Restaurant.builder()
+        Restaurant restaurant = Restaurant.builder()
                                 .id(1004L)
                                 .name("Bob Zip")
                                 .address("Seoul")
                                 .build();
+        MenuItem menuItem = MenuItem.builder().name("Kimchi").build();
+        restaurant.setMenuItems(Arrays.asList(menuItem));
 
-        restaurant1.setMenuItems(Arrays.asList(MenuItem.builder().name("Kimchi").build()));
-        //Restaurant restaurant2 = new Restaurant(2020L, "Cyber Food", "seoul");
-        Restaurant restaurant2 = Restaurant.builder()
-                .id(2020L)
-                .name("Cyber Food")
-                .address("Seoul")
+        Review review = Review.builder()
+                .name("JOKER")
+                .score(3)
+                .description("Great")
                 .build();
-        //restaurant2.addMenuItem(new MenuItem( "Kimchi"));
-
-        given(restaurantService.getRestaurant(1004L)).willReturn(restaurant1);
-        given(restaurantService.getRestaurant(2020L)).willReturn(restaurant2);
+        restaurant.setReviews(Arrays.asList(review));
+        given(restaurantService.getRestaurant(1004L)).willReturn(restaurant);
 
         mvc.perform(get("/restaurants/1004"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("1004")))
                 .andExpect(content().string(containsString("Bob Zip")))
-                .andExpect(content().string(containsString("Kimchi")));
-/*
-        mvc.perform(get("/restaurants/2020"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Cyber Food")))
-                .andExpect(content().string(containsString("2020")))
-                .andExpect(content().string(containsString("Kimchi")));*/
+                .andExpect(content().string(containsString("Kimchi")))
+                .andExpect(content().string(containsString("Great")));
     }
 
     @Test

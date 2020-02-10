@@ -17,6 +17,8 @@ public class Review {
     @GeneratedValue
     @Id
     private Long id;
+    @Setter
+    private Long restaurantId;
     @NotEmpty
     private String name;
     @NonNull

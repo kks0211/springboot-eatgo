@@ -31,7 +31,7 @@ public class ReviewServiceTests {
                                 .score(3)
                                 .description("delicious")
                                 .build();
-        reviewService.addReview(review);
+        reviewService.addReview(1004L, review);
 
         verify(reviewRepository).save(any());
     }

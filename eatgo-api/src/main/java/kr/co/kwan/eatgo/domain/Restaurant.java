@@ -29,6 +29,9 @@ public class Restaurant {
     @Transient
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<MenuItem> menuItems;
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<Review> reviews;
 
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = new ArrayList<>(menuItems);
@@ -43,4 +46,7 @@ public class Restaurant {
         this.address = address;
     }
 
+    public void setReviews(List<Review> reviews) {
+        this.reviews = new ArrayList<>(reviews);
+    }
 }
