@@ -1,7 +1,10 @@
 package kr.co.kwan.eatgo.interfaces;
 
 import kr.co.kwan.eatgo.application.RestaurantService;
-import kr.co.kwan.eatgo.domain.*;
+import kr.co.kwan.eatgo.domain.MenuItemRepository;
+import kr.co.kwan.eatgo.domain.Restaurant;
+import kr.co.kwan.eatgo.domain.RestaurantNotFoundException;
+import kr.co.kwan.eatgo.domain.RestaurantRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
@@ -66,23 +68,13 @@ public class RestaurantControllerTests {
                                 .name("Bob Zip")
                                 .address("Seoul")
                                 .build();
-        MenuItem menuItem = MenuItem.builder().name("Kimchi").build();
-        restaurant.setMenuItems(Arrays.asList(menuItem));
 
-        Review review = Review.builder()
-                .name("JOKER")
-                .score(3)
-                .description("Great")
-                .build();
-        restaurant.setReviews(Arrays.asList(review));
         given(restaurantService.getRestaurant(1004L)).willReturn(restaurant);
 
         mvc.perform(get("/restaurants/1004"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("1004")))
-                .andExpect(content().string(containsString("Bob Zip")))
-                .andExpect(content().string(containsString("Kimchi")))
-                .andExpect(content().string(containsString("Great")));
+                .andExpect(content().string(containsString("Bob Zip")));
     }
 
     @Test

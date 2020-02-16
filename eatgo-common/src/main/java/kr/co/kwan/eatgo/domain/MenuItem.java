@@ -18,11 +18,14 @@ public class MenuItem {
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
+
     @Setter
     private Long restaurantId;
+
     @Transient//db에 안들어감
     @JsonInclude(JsonInclude.Include.NON_DEFAULT)
-    private boolean destory;
+    private boolean destroy;
 
 }

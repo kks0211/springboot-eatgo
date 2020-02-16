@@ -2,7 +2,6 @@ package kr.co.kwan.eatgo.interfaces;
 
 import kr.co.kwan.eatgo.application.RestaurantService;
 import kr.co.kwan.eatgo.domain.Restaurant;
-import kr.co.kwan.eatgo.domain.RestaurantNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

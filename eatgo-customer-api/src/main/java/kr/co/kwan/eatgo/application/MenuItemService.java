@@ -17,10 +17,6 @@ public class MenuItemService {
         this.menuItemsRepository = menuItemRepository;
     }
 
-    public List<MenuItem> getMenuItems(Long restaurantId) {
-        return menuItemsRepository.findAllByRestaurantId(restaurantId);
-    }
-
     public void bulkUpdate(Long restaurantId, List<MenuItem> menuItems) {
         for (MenuItem menuItem : menuItems) {
             update(restaurantId, menuItem);
@@ -35,5 +31,9 @@ public class MenuItemService {
         }
         menuItem.setRestaurantId(restaurantId);
         menuItemsRepository.save(menuItem);
+    }
+
+    public List<MenuItem> getMenuItems(Long restaurantId) {
+        return menuItemsRepository.findAllByRestaurantId(restaurantId);
     }
 }

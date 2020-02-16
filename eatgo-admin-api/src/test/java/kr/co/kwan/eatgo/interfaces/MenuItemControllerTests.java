@@ -36,4 +36,6 @@ public class MenuItemControllerTests {
         verify(menuItemService).bulkUpdate(eq(1L), any());
     }
 
+
+
 }
