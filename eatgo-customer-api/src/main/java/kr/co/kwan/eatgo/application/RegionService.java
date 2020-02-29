@@ -1,7 +1,7 @@
 package kr.co.kwan.eatgo.application;
 
 import kr.co.kwan.eatgo.domain.Region;
-import kr.co.kwan.eatgo.domain.CategoryRepository;
+import kr.co.kwan.eatgo.domain.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +10,10 @@ import java.util.List;
 @Service
 public class RegionService {
 
-    private CategoryRepository regionRepository;
+    private RegionRepository regionRepository;
 
     @Autowired
-    public RegionService(CategoryRepository regionRepository) {
+    public RegionService(RegionRepository regionRepository) {
         this.regionRepository = regionRepository;
     }
 

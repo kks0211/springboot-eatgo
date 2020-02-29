@@ -2,16 +2,16 @@ package kr.co.kwan.eatgo.interfaces;
 
 import kr.co.kwan.eatgo.application.MenuItemService;
 import kr.co.kwan.eatgo.domain.MenuItem;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class MenuItemController {
 
-    @Autowired
-    private MenuItemService menuItemService;
+    private final MenuItemService menuItemService;
 
     @GetMapping("/restaurants/{restaurantId}/menuitems")
     public List<MenuItem> list(@PathVariable Long restaurantId) {

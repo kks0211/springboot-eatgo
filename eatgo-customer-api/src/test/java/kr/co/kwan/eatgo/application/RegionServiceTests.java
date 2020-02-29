@@ -1,7 +1,7 @@
 package kr.co.kwan.eatgo.application;
 
 import kr.co.kwan.eatgo.domain.Region;
-import kr.co.kwan.eatgo.domain.CategoryRepository;
+import kr.co.kwan.eatgo.domain.RegionRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -19,7 +19,7 @@ public class RegionServiceTests {
     private RegionService regionService;
 
     @Mock
-    private CategoryRepository regionRepository;
+    private RegionRepository regionRepository;
 
     @Before
     public void setUp(){

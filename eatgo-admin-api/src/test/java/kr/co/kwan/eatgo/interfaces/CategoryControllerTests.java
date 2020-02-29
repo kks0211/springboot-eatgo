@@ -34,7 +34,6 @@ public class CategoryControllerTests {
 
     @Test
     public  void list() throws Exception {
-
         List<Category> category = new ArrayList<>();
         category.add(Category.builder().name("Korean Food").build());
 

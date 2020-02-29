@@ -50,12 +50,14 @@ public class RestaurantServiceTests {
         //Restaurant restaurant = new Restaurant(1004L,"Bob zip", "seoul");
         Restaurant restaurant = Restaurant.builder()
                 .id(1004L)
+                .categoryId(1L)
                 .name("Bob Zip")
                 .address("Seoul")
                 .build();
 
         restaurants.add(restaurant);
-        given(restaurantRepository.findAll()).willReturn(restaurants);
+        given(restaurantRepository.findAllByAddressContainingAndCategoryId("Seoul", 1L))
+                .willReturn(restaurants);
         given(restaurantRepository.findById(1004L)).willReturn(java.util.Optional.of(restaurant));
 
     }
@@ -92,7 +94,8 @@ public class RestaurantServiceTests {
 
     @Test
     public void getRestaurants() {
-        List<Restaurant> restaurants = restaurantService.getRestaurants();
+        Long categotyId =1L;
+        List<Restaurant> restaurants = restaurantService.getRestaurants("Seoul", categotyId);
 
         Restaurant restaurant = restaurants.get(0);
         assertThat(restaurant.getId()).isEqualTo(1004L);

@@ -2,18 +2,17 @@ package kr.co.kwan.eatgo.application;
 
 
 import kr.co.kwan.eatgo.domain.*;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class RestaurantService {
-    private RestaurantRepository restaurantRepository;
 
-    public RestaurantService(RestaurantRepository restaurantRepository) {
-        this.restaurantRepository = restaurantRepository;
-    }
+    private final RestaurantRepository restaurantRepository;
 
     public List<Restaurant> getRestaurants() {
         List<Restaurant> restaurants = restaurantRepository.findAll();

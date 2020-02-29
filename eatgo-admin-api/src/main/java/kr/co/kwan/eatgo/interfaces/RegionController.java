@@ -2,7 +2,7 @@ package kr.co.kwan.eatgo.interfaces;
 
 import kr.co.kwan.eatgo.application.RegionService;
 import kr.co.kwan.eatgo.domain.Region;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +14,10 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class RegionController {
 
-    @Autowired
-    private RegionService regionService;
-
+    private final RegionService regionService;
 
     @GetMapping("/regions")
     public List<Region> list() {

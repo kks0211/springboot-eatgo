@@ -2,7 +2,7 @@ package kr.co.kwan.eatgo.interfaces;
 
 import kr.co.kwan.eatgo.application.RestaurantService;
 import kr.co.kwan.eatgo.domain.Restaurant;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +13,10 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequiredArgsConstructor
 public class RestaurantController {
 
-    @Autowired
-    private RestaurantService restaurantService;
+    private final RestaurantService restaurantService;
 
     @GetMapping("/restaurants")
     public List<Restaurant> list() {

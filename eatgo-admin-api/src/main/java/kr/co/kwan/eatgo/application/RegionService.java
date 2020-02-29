@@ -2,20 +2,16 @@ package kr.co.kwan.eatgo.application;
 
 import kr.co.kwan.eatgo.domain.Region;
 import kr.co.kwan.eatgo.domain.RegionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class RegionService {
 
-    private RegionRepository regionRepository;
-
-    @Autowired
-    public RegionService(RegionRepository regionRepository) {
-        this.regionRepository = regionRepository;
-    }
+    private final RegionRepository regionRepository;
 
     public List<Region> getRegions() {
         List<Region> regions = regionRepository.findAll();

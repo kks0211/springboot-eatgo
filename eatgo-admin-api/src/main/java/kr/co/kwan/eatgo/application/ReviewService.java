@@ -2,23 +2,20 @@ package kr.co.kwan.eatgo.application;
 
 import kr.co.kwan.eatgo.domain.Review;
 import kr.co.kwan.eatgo.domain.ReviewRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ReviewService {
 
-    @Autowired
-    private ReviewRepository reviewRepository;
-
-    public ReviewService(ReviewRepository reviewRepository) {
-        this.reviewRepository = reviewRepository;
-    }
+    private final ReviewRepository reviewRepository;
 
     public Review addReview(Long restaurantId,Review review) {
         review.setRestaurantId(restaurantId);
+
         return reviewRepository.save(review);
     }
 
