@@ -19,7 +19,7 @@ public class Review {
     private Long id;
     @Setter
     private Long restaurantId;
-    @NotEmpty
+
     private String name;
     @NonNull
     private Integer score;

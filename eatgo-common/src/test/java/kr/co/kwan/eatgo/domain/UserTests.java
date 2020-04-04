@@ -24,4 +24,16 @@ public class UserTests {
 
     }
 
+    @Test
+    public void restaurantOwner(){
+        User user = User.builder().level(1L).build();
+
+        assertThat(user.isRestaurantOwner()).isEqualTo(false);
+
+        user.setRestaurantId(1004L);
+
+        assertThat(user.isRestaurantOwner()).isEqualTo(true);
+        assertThat(user.getRestaurantId()).isEqualTo(1004L);
+    }
+
 }

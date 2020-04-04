@@ -1,0 +1,13 @@
+docker run -it --rm hello-world
+
+ docker run -it ubuntu bash
+
+docker run -it busybox
+
+
+docker ps -a
+
+./gradlew bootJar
+
+docker-compose up
+

@@ -10,11 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Builder
+
+@Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class Category {
 
     @Id
@@ -24,3 +25,4 @@ public class Category {
     private String name;
 
 }
+

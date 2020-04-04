@@ -25,7 +25,6 @@ public class MenuItemService {
         for (MenuItem menuItem : menuItems) {
             update(restaurantId, menuItem);
         }
-        //MenuItem menuItem = MenuItem.builder().name("Kimchi").build();
     }
 
     private void update(Long restaurantId, MenuItem menuItem) {
