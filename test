@@ -1,6 +1,6 @@
 docker run -it --rm hello-world
 
- docker run -it ubuntu bash
+docker run -it ubuntu bash
 
 docker run -it busybox
 
@@ -11,3 +11,18 @@ docker ps -a
 
 docker-compose up
 
+
+
+리뷰남기기
+
+http POST localhost:8080/restaurants/1/reviews score=3 description="좋습니다." "Authorization:Bearer eyJhbGci
+OiJIUzI1NiJ9.eyJ1c2VySWQiOjEwMDQsIm5hbWUiOiJKb2huIn0.8hm6ZOJykSINHxL-rf0yV882fApL3hyQ9-WGlJUyo2A"
+
+
+
+
+
+예약
+http post localhost:8080/restaurants/1/reservations date="2019-12-24" time="23:00" partySize=4 "Authorizatio
+n:Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjEwMDQsIm5hbWUiOiJKb2huIn0.8hm6ZOJykSINHxL-rf0yV882fApL3hyQ9-WGlJUyo
+2A"
